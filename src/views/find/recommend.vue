@@ -11,7 +11,7 @@
   import {Swiper, SwiperItem} from 'vux'
 import api from '../../api/index'
   export default {
-    name: 'recommend',
+    name: 'le-recommend',
     data () {
       return {
         banner:[]
@@ -40,5 +40,10 @@ import api from '../../api/index'
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+  .recommend{
+    height: 100%;
+    width: 100%;
+    overflow-y: auto;
+  }
 
 </style>
