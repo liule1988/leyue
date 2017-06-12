@@ -1,15 +1,21 @@
 <template>
   <div class="recommend">
-    <swiper :aspect-ratio="300/800"  auto loop dots-position="center">
-      <swiper-item class="swiper-demo-img" v-for="(item, index) in banner " :key="index" ><img :src="item.pic" style="width: 100%"></swiper-item>
-    </swiper>
+
+    <div class="recommend-swp">
+      <mt-swipe>
+        <mt-swipe-item v-for="(item, index) in banner " :key="index"><img :src="item.pic" style="width: 100%"></mt-swipe-item>
+      </mt-swipe>
+    </div>
 
   </div>
 </template>
 
 <script>
-  import {Swiper, SwiperItem} from 'vux'
-import api from '../../api/index'
+  import Vue from 'vue'
+  import { Swipe, SwipeItem } from 'mint-ui';
+
+  Vue.component(Swipe.name, Swipe);
+  Vue.component(SwipeItem.name, SwipeItem);  import api from '../../api/index'
   export default {
     name: 'le-recommend',
     data () {
@@ -18,8 +24,7 @@ import api from '../../api/index'
       }
     },
     components: {
-      Swiper,
-      SwiperItem
+
     },
     mounted(){
         this.getBanner();
@@ -33,7 +38,8 @@ import api from '../../api/index'
               .catch((response) => {
                 console.log(response);
               });
-        }
+        },
+
     }
   }
 </script>
@@ -45,5 +51,7 @@ import api from '../../api/index'
     width: 100%;
     overflow-y: auto;
   }
-
+.recommend-swp{
+  height: 150px;
+}
 </style>

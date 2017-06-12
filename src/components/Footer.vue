@@ -1,32 +1,47 @@
 <template>
-    <div class="footer">
-        <router-link to="/find" class="item">
-            发现音乐
-        </router-link>
+  <mt-tabbar v-model="selected"  @click.native="goto" class="footer">
+    <mt-tab-item id="find">
+      <img slot="icon" src="../assets/logo.png">
+      发现音乐
+    </mt-tab-item>
+    <mt-tab-item id="myMusic">
+      <img slot="icon" src="">
+      我的音乐
+    </mt-tab-item>
+    <mt-tab-item id="friends">
+      <img slot="icon" src="">
+      朋友
+    </mt-tab-item>
+    <mt-tab-item id="me">
+      <img slot="icon" src="">
+      帐号
+    </mt-tab-item>
+  </mt-tabbar>
 
-        <router-link to="/myMusic" class="item" >
-            我的音乐
-        </router-link>
 
-        <router-link to="/friends" class="item">
-            朋友
-        </router-link>
 
-        <router-link to="/me" class="item">
-            账号
-        </router-link>
-
-    </div>
 </template>
 
 <script>
+  import Vue from 'vue'
+  import { Tabbar, TabItem } from 'mint-ui';
+
+  Vue.component(Tabbar.name, Tabbar);
+  Vue.component(TabItem.name, TabItem);
     export default {
         name: 'le-footer',
         data () {
             return {
-                msg: 'Welcome to Your Vue.js App'
+              selected:''
             }
         },
+        methods:{
+            goto () {
+              console.log(this.selected)
+              // 命名的路由
+              this.$router.push({ name: this.selected})
+            }
+        }
 
     }
 </script>
@@ -34,23 +49,9 @@
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped >
     .footer {
-        display: flex;
-        position: fixed;
-        bottom: 0;
-        width: 100%;
-        background-color: rgba(0,0,0,0.5);
-        align-content: center;
-        z-index: 999;
-
-
-
-
+        background-color: rgba(0,0,0,0.8);
     }
-    .item {
-      flex: 1;
-      align-items: center;
-      align-self: center;
-      padding: 10px 0;
-      font-size: 10px;
+    .mint-tabbar > .mint-tab-item.is-selected{
+      background-color: rgba(0,0,0,0);
     }
 </style>

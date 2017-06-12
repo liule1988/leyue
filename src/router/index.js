@@ -45,44 +45,10 @@ export default new Router({
           resolve(require('../views/find/Find.vue'));
         });
       },
-      children: [
-
-        {
-          path: '/',  //  发现
-          redirect: '/find/recommend'
-        },
-        {
-        path: 'recommend',  //  发现
-        name: 'recommend',
-        component (resolve) {
-          require.ensure(['../views/find/recommend.vue'], () => {
-            resolve(require('../views/find/recommend.vue'));
-          });
-        },
-        meta: { keepAlive: true }
-      },
-        {
-          path: 'musicList',  //  发现
-          name: 'musicList',
-          component (resolve) {
-            require.ensure(['../views/find/musicList.vue'], () => {
-              resolve(require('../views/find/musicList.vue'));
-            });
-          },
-        },{
-          path: 'ranks',  //  发现
-          name: 'ranks',
-          component (resolve) {
-            require.ensure(['../views/find/ranks.vue'], () => {
-              resolve(require('../views/find/ranks.vue'));
-            });
-          },
-        }
-      ],
       meta: { keepAlive: true }
     },
     {
-      path: '/myMusic',  //  搜索页
+      path: '/myMusic',  //  我的音乐
       name: 'myMusic',
       component (resolve) {
         require.ensure(['../views/myMusic/myMusic.vue'], () => {
@@ -92,7 +58,7 @@ export default new Router({
       meta: {keepAlive: true}
     },
     {
-      path: '/friends',  //  搜索页
+      path: '/friends',  //  朋友
       name: 'friends',
       component (resolve) {
         require.ensure(['../views/friends/friends.vue'], () => {
@@ -102,7 +68,7 @@ export default new Router({
       meta: {keepAlive: true}
     },
     {
-      path: '/me',  //  搜索页
+      path: '/me',  //  账号
       name: 'me',
       component (resolve) {
         require.ensure(['../views/me/me.vue'], () => {
@@ -113,7 +79,7 @@ export default new Router({
     },
 
 
-  ], // （缩写）相当于 routes: routes
+  ],
   scrollBehavior,
 
 })

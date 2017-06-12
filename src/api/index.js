@@ -3,14 +3,19 @@ import axios from 'axios';
 const baseUrl = 'http://localhost:3000'
 
 const apiMusic = {
-    banner:baseUrl+'/banner'
-
+    banner:baseUrl+'/banner',          //banner
+    r_music_list:baseUrl+'/personalized' , //推荐歌单
 };
 
 export default {
   //获取banner
   getBanner(){
     return axios.get(apiMusic.banner)
+  },
+
+//获取推荐歌单
+  getRecommendMusicList(){
+    return axios.get(apiMusic.r_music_list);
   },
 
   // 获取个人信息，注入cookies
