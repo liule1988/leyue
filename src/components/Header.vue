@@ -47,6 +47,8 @@
         width: 100%;
         align-items: center;
         color: white;
+      text-align: center;
+
     }
     .header-left,.header-right{
         flex:15;

@@ -1,19 +1,19 @@
 <template>
   <mt-tabbar v-model="selected"  @click.native="goto" class="footer">
     <mt-tab-item id="find">
-      <img slot="icon" src="../assets/logo.png">
+      <img slot="icon" src="../assets/music.svg">
       发现音乐
     </mt-tab-item>
-    <mt-tab-item id="myMusic">
-      <img slot="icon" src="">
+    <mt-tab-item id="myMusic"  >
+      <img slot="icon" src="../assets/love.svg">
       我的音乐
     </mt-tab-item>
     <mt-tab-item id="friends">
-      <img slot="icon" src="">
+      <img slot="icon" src="../assets/find.svg">
       朋友
     </mt-tab-item>
     <mt-tab-item id="me">
-      <img slot="icon" src="">
+      <img slot="icon" src="../assets/search.svg">
       帐号
     </mt-tab-item>
   </mt-tabbar>

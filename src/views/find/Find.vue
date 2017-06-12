@@ -10,7 +10,7 @@
       <swiper v-model="index" height="100%" :min-moving-distance="150" :show-dots="false" class="swiper-container"
               style="width:100%;height: 100%;padding-bottom: 90px;background-color: #eef2f1;">
         <swiper-item :key="1">
-          <le-recommend></le-recommend>
+          <le-recommend :reMusicList="reMusicList"></le-recommend>
         </swiper-item>
         <swiper-item :key="2">
           2
@@ -33,7 +33,8 @@
     name: 'Find',
     data () {
       return {
-        index: 0
+        index: 0,
+        reMusicList:[]
       }
     },
     components: {
@@ -43,10 +44,21 @@
       leRecommend
     },
     mounted () {
+        this.getRecommendMusicList()
       this.play();
 //    this.getBanner()
     },
     methods:{
+      getRecommendMusicList(){
+        api.getRecommendMusicList().then((response)=>{
+            console.log(response)
+          this.reMusicList=response.data.result
+        })
+          .catch((response)=>{
+            console.log(response)
+          })
+
+      },
       play () {
         this.$store.commit('tabChange', {
           'isFind': true,
